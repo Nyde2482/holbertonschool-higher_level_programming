@@ -1,0 +1,172 @@
+# Tests pour MyList
+# Première ligne: importe la classe MyList
+>>> MyList = __import__('1-my_list').MyList
+
+# Test 1: Créer une liste vide et afficher
+>>> my_list = MyList()
+>>> my_list.print_sorted()
+[]
+
+# Test 2: Ajouter des éléments et afficher trié
+>>> my_list = MyList([1, 3, 2, 5, 4])
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
+
+# Test 3: Les éléments négatifs
+>>> my_list = MyList([1, -5, 3, -2, 0])
+>>> my_list.print_sorted()
+[-5, -2, 0, 1, 3]
+
+# Test 4: Vérifier que la liste originale n'est pas modifiée
+>>> my_list = MyList([3, 1, 2])
+>>> my_list.print_sorted()
+[1, 2, 3]
+>>> print(my_list)
+[3, 1, 2]
+
+# Test 5: Une seule valeur
+>>> my_list = MyList([42])
+>>> my_list.print_sorted()
+[42]
+
+# Test 6: Doublets
+>>> my_list = MyList([2, 2, 1, 1, 3])
+>>> my_list.print_sorted()
+[1, 1, 2, 2, 3]
+
+# Test 7: Ajouter un élément après création
+>>> my_list = MyList([5, 1, 3])
+>>> my_list.append(2)
+>>> my_list.print_sorted()
+[1, 2, 3, 5]
+
+# Test 8: MyList est une liste
+>>> my_list = MyList([1, 2, 3])
+>>> isinstance(my_list, list)
+True
+
+# Test 9: Nombres grands
+>>> my_list = MyList([100, 1, 50, 2])
+>>> my_list.print_sorted()
+[1, 2, 50, 100]
+
+# Test 10: Flottants (décimaux)
+>>> my_list = MyList([3.5, 1.2, 2.8, 1.2])
+>>> my_list.print_sorted()
+[1.2, 1.2, 2.8, 3.5]
+
+# Test 11: Mélange d'entiers positifs et négatifs
+>>> my_list = MyList([-10, 5, -3, 0, 8, -1])
+>>> my_list.print_sorted()
+[-10, -3, -1, 0, 5, 8]
+
+# Test 12: Tous les éléments identiques
+>>> my_list = MyList([7, 7, 7, 7])
+>>> my_list.print_sorted()
+[7, 7, 7, 7]
+
+# Test 13: Utiliser extend pour ajouter plusieurs éléments
+>>> my_list = MyList([3, 1])
+>>> my_list.extend([5, 2])
+>>> my_list.print_sorted()
+[1, 2, 3, 5]
+
+# Test 14: Utiliser insert pour ajouter un élément à une position
+>>> my_list = MyList([1, 3, 5])
+>>> my_list.insert(1, 2)
+>>> my_list.print_sorted()
+[1, 2, 3, 5]
+
+# Test 15: Utiliser pop pour retirer un élément
+>>> my_list = MyList([1, 2, 3, 4, 5])
+>>> my_list.pop()
+5
+>>> my_list.print_sorted()
+[1, 2, 3, 4]
+
+# Test 16: Utiliser remove pour retirer un élément spécifique
+>>> my_list = MyList([1, 2, 3, 2, 4])
+>>> my_list.remove(2)
+>>> my_list.print_sorted()
+[1, 2, 3, 4]
+
+# Test 17: Vérifier que print_sorted retourne None
+>>> my_list = MyList([3, 1, 2])
+>>> result = my_list.print_sorted()
+[1, 2, 3]
+>>> print(result)
+None
+
+# Test 18: Liste très grande
+>>> my_list = MyList(list(range(10, 0, -1)))
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# Test 19: Éléments en ordre inverse
+>>> my_list = MyList([5, 4, 3, 2, 1])
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
+
+# Test 20: Éléments aléatoires
+>>> my_list = MyList([9, 2, 7, 1, 5, 3, 8, 4, 6])
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# Test 21: Zéro et valeurs proches
+>>> my_list = MyList([0, -1, 1, -2, 2])
+>>> my_list.print_sorted()
+[-2, -1, 0, 1, 2]
+
+# Test 22: Accès aux éléments comme liste normale
+>>> my_list = MyList([10, 20, 30])
+>>> my_list[0]
+10
+>>> my_list[1]
+20
+
+# Test 23: Utiliser len sur la liste
+>>> my_list = MyList([1, 2, 3, 4])
+>>> len(my_list)
+4
+
+# Test 24: Itérer sur la liste
+>>> my_list = MyList([1, 2, 3])
+>>> for item in my_list:
+...     print(item, end=' ')
+1 2 3 
+
+# Test 25: Vérifier l'héritage
+>>> my_list = MyList([3, 1, 2])
+>>> my_list.__class__.__bases__
+(<class 'list'>,)
+
+# Test 26: Utiliser clear pour vider la liste
+>>> my_list = MyList([1, 2, 3])
+>>> my_list.clear()
+>>> my_list.print_sorted()
+[]
+
+# Test 27: Vérifier que print_sorted n'affecte pas la liste
+>>> my_list = MyList([3, 1, 2])
+>>> my_list.print_sorted()
+[1, 2, 3]
+>>> my_list
+[3, 1, 2]
+
+# Test 28: Listes imbriquées
+>>> my_list = MyList([[3, 2], [1, 0]])
+>>> my_list.print_sorted()
+[[1, 0], [3, 2]]
+
+# Test 29: Copies et références
+>>> original = [3, 1, 2]
+>>> my_list = MyList(original)
+>>> my_list.print_sorted()
+[1, 2, 3]
+>>> original
+[3, 1, 2]
+
+# Test 30: Strings
+>>> my_list = MyList(['c', 'a', 'b'])
+>>> my_list.print_sorted()
+['a', 'b', 'c']
